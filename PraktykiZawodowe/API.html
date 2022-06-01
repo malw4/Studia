@@ -1,0 +1,108 @@
+<!DCOTYPE HTML>
+<html lang="pl">
+<!--Malwina Cieśla-->
+	<head> 
+		<meta charset="utf-8"/>
+		<title>Zamień adres na wykres nasłonecznienia </title>
+		<meta name="keywords" content = "kalkulator, fotowoltaika, maxcom, maxcom eco energy" />
+		<meta http-equiv="X-UA-Compatibile" content="IE=edge,chrome=1"/>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://code.highcharts.com/highcharts.js"></script> 
+		<script src="http://code.highcharts.com/modules/data.js"></script> 
+		<script language="JavaScript" src="fun.js"></script>
+		<style>
+			#container{
+				width: 1300px;
+				margin-left: auto;
+				margin-right: auto;
+			}#logo{	
+				float: left;
+				width: 330px;
+				text-align: center;
+			}#adress{
+				float: left;
+				color: gray;
+				padding: 20px;
+			}#hours{
+				float: left;
+				color: gray;
+				padding: 20px;
+			}h2, h1{
+				color: green;
+			}h4{
+				display:inline;
+				font-weight: bold; 
+				font-size: 20px;
+				color:  #16390e;
+			}#number{
+				float: left;
+				text-align: center;
+				padding: 35px;
+				color: gray;
+			}#dziura{
+				font-family: Verdana; 
+				text-align: center;
+				background:  #78ff41;
+				clear: both;
+				width: auto;
+			}#cialko{
+				both: clear
+				min-height: 1300px;
+				width: 1200px;
+				padding: 20px;
+				color: black;
+				text-align: center; 
+			}#footer{
+				background-color:  #78ff41;
+				color: black
+				both: clear
+				padding: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body> 
+		<div id="container">  
+		
+			<div id="logo" >
+				<a href="https://maxcom.eco" >	<img src="img/logo.png" /> </a>
+			</div>
+			<div id="adress">
+				<h2>NASZ ADRES </h2> 
+				Maxcom Eco Energy sp. z o.o. <br />
+				ul. Towarowa 23a <br />
+				43-100 Tychy, Polska <br />
+				NIP:PL6462983514, KRS:0000848764, <br />
+				REGON:386452830 
+			</div>
+			<div id="hours">
+				<h2>GODZINY OTWARCIA </h2>
+				Poniedziałek - Piątek: 9 00 - 17 00 <br />
+				Sobota - Niedziela: nieczynne <br /> <br /> <br />
+				<a href= "https://maxcom.eco/polityka-prywatnosci/"  > Polityka Prywatności </a> 
+			</div>
+			<div id="number">
+				<h1> +48 32 777 1000 </h1>
+				Jeśli masz jakieś pytanie, skontaktuj się z nami
+			</div>
+			<div id="dziura"> <h3>Zamień adres na wykres nasłonecznienia</h3></div>
+			<div id="cialko" >
+				<h4>Wprowadź adres:  </h4>
+					<input type="text" id="pole1" placeholder="Miasto" /> <input type="text" id="pole12" placeholder="Kraj" />
+				<br></br>
+				<h4>  Wprowadź ulicę:  </h4>
+					<input type="text" id="pole2" />
+				<br></br>
+				<h4> Wprowadź numer domu: </h4>
+					<input type="text" id="pole3" />
+				<br></br><br/>
+				<input type="submit" value="Wyznacz współrzędne ❕" onclick="toGeo()" style="font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #78ff41; padding: 10px;"  />
+			</div>
+			<div id="footer">
+				Maxcom Eco Energy - Lider fotowoltaiki w Polsce | Panele fotowoltaiczne i farmy solarne.
+			</div>
+		</div>
+	</body>
+<!--Malwina Cieśla-->
+</html>
