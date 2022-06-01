@@ -1,0 +1,381 @@
+<!DCOTYPE HTML>
+<html lang="pl">
+<!--Malwina Cieśla-->
+	<head> 
+		<meta charset="utf-8"/>
+		<title>Kalkulator fotowoltaiczny </title>
+		<meta name="keywords" content = "kalkulator, fotowoltaika, maxcom, maxcom eco energy" />
+		<meta http-equiv="X-UA-Compatibile" content="IE=edge,chrome=1"/>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://code.highcharts.com/highcharts.js"></script> 
+		<script src="http://code.highcharts.com/modules/data.js"></script> 
+		<script language="JavaScript" src="skrypt.js"></script>
+		<style>
+			#container{
+				width: 1300px;
+				margin-left: auto;
+				margin-right: auto;
+			}#logo{	
+				float: left;
+				width: 330px;
+				text-align: center;
+			}#adress{
+				float: left;
+				color: gray;
+				padding: 20px;
+			}#hours{
+				float: left;
+				color: gray;
+				padding: 20px;
+			}h2, h1{
+				color: green;
+			}h3{
+				display:inline;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:  #16390e;
+			}#number{
+				float: left;
+				text-align: center;
+				padding: 35px;
+				color: gray;
+			}#dziura{
+				background:  #78ff41;
+				clear: both;
+				width: auto;
+				padding: 20px;
+			}#loger{
+				float: left;
+				color: black;
+				padding: 20px;
+			}#calc{
+				float: left;
+				padding: 30px;
+				width: 500px;
+				text-align: right; 
+			}#cialko{
+				both: clear
+				min-height: 1300px;
+				width: 1200px;
+				padding: 20px;
+				color: black;
+				text-align: center; 
+			}#koniec{
+				text-align: right;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 20px;
+			}
+			#tab{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 660px; height: 30px;
+				font-family: Verdana; 
+				text-align: center;
+			}#wyn1{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 480px; height: 30px;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:green;
+			}#wyn2{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 480px; height: 30px;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:green;
+			}#wyn3{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 480px; height: 30px;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:green;
+			}#wyn4{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 480px; height: 30px;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:green;
+			}#non{
+				border-radius: 3px;
+				width: 300px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan1{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan2{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan3{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#ile{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan11{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan21{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+				color: black;
+			}#pan31{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#surface{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan12{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan22{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#pan32{
+				float: left;
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 290px; height: 30px;
+				font-family: Verdana; 
+				background-position: right;
+			}#orient1{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 680px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}#orient2{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 500px; height: 30px;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:green;
+			}#orient3{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 680px; height: 30px;
+				font-family: Verdana; 
+				text-align: center-left;
+			}
+			#orient4{
+				border: 1px solid silver; 
+				background: white; padding: 4px;
+				border-radius: 3px;
+				width: 500px; height: 30px;
+				font-family: Verdana; 
+				font-weight: bold; 
+				font-size: 20px;
+				color:green;
+			}#footer{
+				background-color:  #78ff41;
+				color: black
+				both: clear
+				padding: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body> 
+		<div id="container">  
+		
+			<div id="logo" >
+				<a href="https://maxcom.eco" >	<img src="img/logo.png" /> </a>
+			</div>
+			<div id="adress">
+				<h2>NASZ ADRES </h2> 
+				Maxcom Eco Energy sp. z o.o. <br />
+				ul. Towarowa 23a <br />
+				43-100 Tychy, Polska <br />
+				NIP:PL6462983514, KRS:0000848764, <br />
+				REGON:386452830 
+			</div>
+			<div id="hours">
+				<h2>GODZINY OTWARCIA </h2>
+				Poniedziałek - Piątek: 9 00 - 17 00 <br />
+				Sobota - Niedziela: nieczynne <br /> <br /> <br />
+				<a href= "https://maxcom.eco/polityka-prywatnosci/"  > Polityka Prywatności </a> 
+			</div>
+			<div id="number">
+				<h1> +48 32 777 1000 </h1>
+				Jeśli masz jakieś pytanie, skontaktuj się z nami
+			</div>
+			<div id="dziura"> </div>
+			<div id="loger" >
+				<h1> Kalkulator fotowoltaiczny </h1>		
+				Kalkulator ten pozwala oszacować jak dużej instalacji fotowoltaicznej potrzeba, <br/>
+				aby pokryć całe zapotrzebowanie energetyczne domu. <br/>
+				Dzięki temu w prosty i szybki sposób możesz dowiedzieć się <br/>
+				ile modułów potrzebujesz oraz jak dużą powierzchnię cała instalacja będzie zajmować. <br/> <br/> <br/> <br/>
+			</div>
+			<div id="calc">
+				<br />  <br />  <br /> 
+				<img src="img/calc.png" />
+				<br />  <br />  <br /> 
+			</div>
+			<br />  <br />  <br /> 
+			<div id="cialko" >
+				<br /> <br /><br />  <br />  <br /> 
+				<h1>Dedykowana dla Ciebie instalacja fotowoltaiczna </h1> 
+				<h3>Wprowadź kwotę, którą płacisz elektrowni:   </h3>
+					<input type="text" id="pole1" /> zł
+				<br></br>
+				<h3>Wprowadź swój okres rozliczeniowy:  </h3>
+					<select id="opt1" name="opt1">
+						<option value="0"> </option>
+						<option value="12">  Co miesiąc  </option>
+						<option value="6">  Co dwa miesiące  </option>
+						<option value="1">  Roczny </option>
+					</select>
+				<br></br>
+				<h3>Planowana lokalizacja instalacji:   </h3>
+					<select id="opt2" name="opt2">
+						<option value="0"> </option>
+						<option value="1">  Dach skośny  </option>
+						<option value="1">  Dach płaski  </option>
+						<option value="1">  Grunt </option>
+					</select>
+				<br></br>
+				<h3>Wybierz opcję nieruchomości:   </h3>
+					<select id="opt3" name="opt3">
+						<option value="0"> </option>
+						<option value="20">  Dom  </option>
+						<option value="50">  Gospodarstwo  </option>
+					</select>
+				<br></br>
+				<input type="submit" value="Oblicz ❕" onclick="modules()" style="font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #78ff41; padding: 10px;"  />
+				<div id="koniec" style="display:none;" onclick="PokazTekst()">
+					<br></br>
+					<div id="tab" style="float:left;"> <h3>Roczne opłaty</h3> </div>  <div id="wyn1" style="float:left;"></div> <div style="clear:both;"> </div>
+					<div id="tab" style="float:left;"> <h3>Przez 25 lat wydasz na prąd</h3> </div>  <div id="wyn2" style="float:left;"></div> <div style="clear:both;"> </div>
+					<div id="tab" style="float:left;"> <h3>Zużycie energii</h3> </div>  <div id="wyn3" style="float:left;"></div> <div style="clear:both;"> </div>
+					<div id="tab" style="float:left;"> <h3>Potrzebna wielkość instalacji</h3> </div>  <div id="wyn4" style="float:left;"></div> <div style="clear:both;"> </div> <br/>
+				</div>
+				<div id="panele" style="display:none;" onclick="PokazTekst()">
+					<div id="non" style="float:left;"> </div><div id="pan1"> <h3>Panel 340W</h3> </div>  
+					<div id="pan2"> <h3>Panel 365W</h3></div> 
+					<div id="pan3"><h3>Panel 400W</h3></div>  <div style="clear:both;"> </div>
+					<div id="ile" style="float:left;"> Liczba paneli</div>
+					<div id="pan11"></div>  <div id="pan21"></div> <div id="pan31"></div> <div style="clear:both;"> </div>
+					<div id="surface" style="float:left;"> Zajmowana powierzchnia</div>
+					<div id="pan12"></div>  <div id="pan22"></div> <div id="pan32"></div> <div style="clear:both;"> </div>
+					<br></br>
+				</div>
+				<div id="orient" style="display:none;" onclick="PokazTekst()">
+				<div id="orient1" style="float:left;"> <h3>Autokonsumpcja</h3> </div>  <div id="orient2" style="float:left;"></div> <div style="clear:both;"> </div>
+				<div id="orient3" style="float:left;"> <h3>Opust (Net-metering)</h3> </div>  <div id="orient4" style="float:left;"></div> <div style="clear:both;"> </div> <br /> 
+				</div> 
+			</div> 
+			<div id="container" style="min-width: 550px; min-height:30; margin: 0 auto; text-align:center;">
+			<input type="submit" value="Przedstaw wykres zwrotu inwestycji ❕" onclick="gra()" style="font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #78ff41; padding: 10px;" />
+			<table id="datatable" style="font-size: 7px; display:none;" onclick="PokazTekst()">
+				<thead>
+					<tr><th></th><th style="color:white;">Koszt inwestycji przypadający na rok</th></tr>
+				</thead>
+				<tbody>
+					<tr><th></th><td id="r1"></td></tr>
+					<tr><th></th><td id="r2"></td></tr>
+					<tr><th></th><td id="r3"></td></tr>
+					<tr><th></th><td id="r4"></td></tr>
+					<tr><th></th><td id="r5"></td></tr>
+					<tr><th></th><td id="r6"></td></tr>
+					<tr><th></th><td id="r7"></td></tr>
+					<tr><th></th><td id="r8"></td></tr>
+					<tr><th></th><td id="r9"></td></tr>
+					<tr><th></th><td id="r10"></td></tr>
+					<tr><th></th><td id="r11"></td></tr>
+					<tr><th></th><td id="r12"></td></tr>
+					<tr><th></th><td id="r13"></td></tr>
+					<tr><th></th><td id="r14"></td></tr>
+					<tr><th></th><td id="r15"></td></tr>
+					<tr><th></th><td id="r16"></td></tr>
+					<tr><th></th><td id="r17"></td></tr>
+					<tr><th></th><td id="r18"></td></tr>
+					<tr><th></th><td id="r19"></td></tr>
+					<tr><th></th><td id="r20"></td></tr>
+					<tr><th></th><td id="r21"></td></tr>
+					<tr><th></th><td id="r22"></td></tr>
+					<tr><th></th><td id="r23"></td></tr>
+					<tr><th></th><td id="r24"></td></tr>
+					<tr><th></th><td id="r25"></td></tr>
+				</tbody>
+			</table>
+			</div><br><br>
+			<div id="diag"> </div>
+			<h6>*Ceny opłat w kalkulatorze zostały uśrednione i przybliżone do wartości 65 gr/kWh. Ceny na rachunkach zależą od cen występujących w umowie z zakładami energetycznymi, które różnią się między sobą. Zależą one również od miejsca państwa zamieszkania. </h6> 
+			<div id="footer">
+				Maxcom Eco Energy - Lider fotowoltaiki w Polsce | Panele fotowoltaiczne i farmy solarne.
+			</div>
+		</div>
+	</body>
+<!--Malwina Cieśla-->
+</html>
