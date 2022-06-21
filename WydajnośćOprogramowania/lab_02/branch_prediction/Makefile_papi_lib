@@ -1,0 +1,63 @@
+SHELL = /bin/sh
+
+# C compiler
+# kompilator C
+#CCOMP = gcc
+CCOMP = icc
+
+# linker
+# konsolidator
+LINKER = $(CCOMP)
+
+# PAPI
+PAPI_HOME = /home/krzysztof/Moje_pliki/Testy_wydajnosci/papi
+
+# options:
+# opcje:
+
+# version for debugging
+# wersja do debugowania
+# OPT = -g -DDEBUG
+
+# optimized version for time measurements
+# wersja zoptymalizowana do mierzenia czasu
+#OPT = -O3 -mavx
+#OPT = -O3 -march=core-avx2 -openmp
+OPT = -O3 
+
+# location for header files
+# katalog z plikami naglowkowymi
+INC = -I../../00_time_util -I../../00_papi_driver -I$(PAPI_HOME)/papi-5.6.0/src/
+
+# locations for libraries and options for linking libraries
+# katalogi bibliotek i opcje dołączania bibliotek
+LIB = -L../../00_time_util -lutl_time -lm -L$(PAPI_HOME)/papi-5.6.0/src/ $(PAPI_HOME)/papi-5.6.0/src/libpapi.a -L../../00_papi_driver -lpapi_driver
+
+# dependencies and commands 
+# zaleznosci i komendy
+all: branch_prediction branch_prediction_papi
+
+branch_prediction: branch_prediction.o 
+	$(LINKER) $(OPT) branch_prediction.o -o branch_prediction $(LIB)
+
+branch_prediction.o: branch_prediction.c ../../00_time_util/uth_time.h 
+	$(CCOMP) -c $(OPT) branch_prediction.c $(INC)
+
+branch_prediction_papi: branch_prediction_papi.o papi_set_user_events.o
+	$(LINKER) $(OPT) branch_prediction_papi.o  papi_set_user_events.o -o branch_prediction_papi $(LIB)
+
+branch_prediction_papi.o: branch_prediction.c ../../00_time_util/uth_time.h ../../00_papi_driver/papi_driver.h
+	$(CCOMP) -c $(OPT) branch_prediction.c -DPAPI_TEST -o branch_prediction_papi.o $(INC)
+
+papi_set_user_events.o: papi_set_user_events.c ../../00_papi_driver/papi_driver.h
+	$(CCOMP) -c $(OPT) papi_set_user_events.c  $(INC)
+clean:
+	rm -f *.o
+
+clean_papi_lib:
+	rm -f ../../00_papi_driver/*.o ../../00_papi_driver/*.a
+
+recreate_papi_lib:
+	rm -f ../../00_papi_driver/*.o ../../00_papi_driver/*.a
+	$(CCOMP) -c $(OPT) ../../00_papi_driver/papi_driver.c -o ../../00_papi_driver/papi_driver.o $(INC)
+	ar -rs ../../00_papi_driver/libpapi_driver.a ../../00_papi_driver/papi_driver.o

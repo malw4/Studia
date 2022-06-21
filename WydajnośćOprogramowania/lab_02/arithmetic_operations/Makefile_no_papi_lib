@@ -1,0 +1,49 @@
+SHELL = /bin/sh
+
+# C compiler
+# kompilator C
+CCOMP = gcc
+#CCOMP = icc
+
+# linker
+# konsolidator
+LINKER = $(CCOMP)
+
+# options:
+# opcje:
+
+# version for debugging
+# wersja do debugowania
+# OPT = -g -DDEBUG
+
+# optimized version for time measurements
+# wersja zoptymalizowana do mierzenia czasu
+#OPT = -O3 -mavx
+#OPT = -O3 -march=core-avx2 -openmp
+OPT = -O3 
+
+# location for header files
+# katalog z plikami naglowkowymi
+INC = -I../utd_time_unix
+
+# locations for libraries and options for linking libraries
+# katalogi bibliotek i opcje dołączania bibliotek
+LIB = -L../utd_time_unix -lutl_time -lm
+
+# dependencies and commands 
+# zaleznosci i komendy
+all: branch_prediction 
+
+branch_prediction: branch_prediction.o 
+	$(LINKER) $(OPT) branch_prediction.o -o branch_prediction $(LIB)
+
+branch_prediction.o: branch_prediction.c ../utd_time_unix/uth_time.h
+	$(CCOMP) -c $(OPT) branch_prediction.c $(INC)
+
+clean:
+	rm -f *.o 
+
+recreate_time_lib:
+	rm -f ../utd_time_unix/*.o ../utd_time_unix/*.a
+	$(CCOMP) -c $(OPT) ../utd_time_unix/uts_time.c -o ../utd_time_unix/uts_time.o $(INC)
+	ar -rs ../utd_time_unix/libutl_time.a ../utd_time_unix/uts_time.o
